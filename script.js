@@ -42,7 +42,7 @@ function calcular() {
   const criancas = inputCriancas.value;
   const duracao = inputDuracao.value;
 
-  if(adultos <0 || criancas <0 || duracao<=0){
+  if(adultos <=0 || criancas <0 || duracao<=0){
     Swal.fire({
       title: 'Erro!',
       text: 'Valores invalidos!',
