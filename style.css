@@ -79,6 +79,17 @@
     margin-bottom: 2rem;
   }
   
+#botoes {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+#limpar {
+  margin-left: 5px;
+  display: none;
+}
+
   .box-calculo label {
     font-family: "Poppins", sans-serif;
     margin-bottom: 0.5rem;

@@ -42,33 +42,55 @@ function calcular() {
   const criancas = inputCriancas.value;
   const duracao = inputDuracao.value;
 
-  const qdtTotalCarne = carnePP(duracao) * adultos + (carnePP(duracao) / 2 * criancas);
-  const qdtTotalCerveja = cervejaPP(duracao) * adultos;
-  const qdtTotalBebidas = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);
+  if(adultos <=0 || criancas <0 || duracao<=0){
+    Swal.fire({
+      title: 'Erro!',
+      text: 'Valores invalidos!',
+      icon: 'error',
+      confirmButtonText: 'Ok',
+      iconColor: '#ffe162'
+    })
 
-  //coloca-se o "+" após o sinal de "=" para deixar entendido que preciso imprimir mais de um innerHTML
-  resultado.innerHTML = `<h2 class="result-info">Você vai precisar de:</h2>`
-  resultado.innerHTML += `
-    <div class="result-block">
-      <img src="./assets/carne.svg"/>
-      <p>${qdtTotalCarne/1000} Kg de Carne</p>
-    </div>
-  `
-  resultado.innerHTML += `
-    <div class="result-block">
-      <img src="./assets/cerveja.svg"/>
-      <p>${Math.ceil(qdtTotalCerveja/355)} latas de Cerveja</p>
-    </div>
-  `
-  resultado.innerHTML += `
-    <div class="result-block">
-      <img src="./assets/refri.svg"/>
-      <p>${Math.ceil(qdtTotalBebidas/2000)} garrafas de Bebidas (Refrigerante / Agua )</p>
-    </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-  `
+    // alert("Valores invalidos!");
+
+     /*
+        Caso tenha problema ao eixibir o Alert personalizado, apagar ele e usar o que está em comentario
+       */
+
+  }else {
+    const qdtTotalCarne = carnePP(duracao) * adultos + (carnePP(duracao) / 2 * criancas);
+    const qdtTotalCerveja = cervejaPP(duracao) * adultos;
+    const qdtTotalBebidas = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);
+    let button = document.querySelector('#limpar').style.display = "block";
+    
+    //coloca-se o "+" após o sinal de "=" para deixar entendido que preciso imprimir mais de um innerHTML
+    resultado.innerHTML = `<h2 class="result-info">Você vai precisar de:</h2>`
+    resultado.innerHTML += `
+      <div class="result-block">
+        <img src="./assets/carne.svg"/>
+        <p>${qdtTotalCarne/1000} Kg de Carne</p>
+      </div>
+    `
+    resultado.innerHTML += `
+      <div class="result-block">
+        <img src="./assets/cerveja.svg"/>
+        <p>${Math.ceil(qdtTotalCerveja/355)} latas de Cerveja</p>
+      </div>
+    `
+    resultado.innerHTML += `
+      <div class="result-block">
+        <img src="./assets/refri.svg"/>
+        <p>${Math.ceil(qdtTotalBebidas/2000)} garrafas de Bebidas (Refrigerante / Agua )</p>
+      </div>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+    `
+    }  
 }
+
+function limpar() {
+  document.location.reload(true);
+};
