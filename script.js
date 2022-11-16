@@ -47,7 +47,8 @@ function calcular() {
       title: 'Erro!',
       text: 'Valores invalidos!',
       icon: 'error',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+      iconColor: '#ffe162'
     })
 
     // alert("Valores invalidos!");
